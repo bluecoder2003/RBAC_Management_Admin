@@ -4,3 +4,7 @@ export interface Role {
     permissions: string[];
     description: string;
   }
+
+export interface RolesTableProps {
+  searchQuery?: string;
+}

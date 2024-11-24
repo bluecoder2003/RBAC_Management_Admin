@@ -5,6 +5,7 @@ import EditModal from './EditRolesModal';
 
 const Rolesmanagement = () => {
   const [addingRole, setAddingRole] = useState<Role | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSave = (editedRole: Role) => {
     // Handle save logic here
@@ -18,16 +19,18 @@ const Rolesmanagement = () => {
         <input
           type="text"
           placeholder="Search..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="pl-8 pr-4 py-2 border rounded-md"
         />
         <button
-          className="bg-blue-300 px-4 py-2 rounded-md"
+          className="bg-blue-700 text-white px-4 py-2 rounded-md"
           onClick={() => setAddingRole({ id: Date.now(), name: '', description: '', permissions: [] })}
         >
           + Add
         </button>
       </div>
-      <RolesTable />
+      <RolesTable searchQuery={searchQuery} />
       {addingRole && (
         <EditModal
           title="Add Role"

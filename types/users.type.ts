@@ -1,7 +1,11 @@
 export interface User {
-    id: number;
-    name: string;
-    email: string;
-    role: string;
-    status: 'Active' | 'Inactive';
-  }
+  id: number;
+  name: string;
+  email: string;
+  role: string;
+  status: string;
+}
+
+export interface UsersTableProps {
+  searchQuery?: string;
+}
